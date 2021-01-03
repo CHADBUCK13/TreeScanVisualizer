@@ -1,0 +1,32 @@
+﻿.slidecontainer
+{
+    width:100%;
+}
+
+.slider
+{
+    -webkit-appearance:none;
+    width:100%;
+    border-radius:5px;
+    height:5px;
+    background: #010101;
+    outline:none;
+    opacity: 0.8;
+    -webkit-transition: .1s;
+    transition: opacity .1s;
+}
+
+.slider:hover
+{
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb
+{
+    -webkit-appearance:none;
+    border-radius:50%;
+    width:15px;
+    height:15px;
+    background:#00eded;
+}
+

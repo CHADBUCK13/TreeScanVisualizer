@@ -1,0 +1,4 @@
+﻿function animateAdHoc()
+{
+    //TODO
+}
