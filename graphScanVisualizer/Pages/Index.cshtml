@@ -22,7 +22,6 @@
     <div class="text-center">
         <h1 class="display-4" style="font-size:40px;">Welcome to the Graph Traversal Visualizer</h1>
         <p style="font-size:22px;">Please choose the graph size you would like to visualize and the type of graph traversing algorithm</p>
-
     </div>
 
     <div class="slidecontainer">
@@ -37,7 +36,7 @@
     <div class="dropdown" id="algorithmDropdown">
         <!--Choose graph traversing algorithm-->
         <link rel="stylesheet" href="~/css/algorithmDropdown.css" /> <!--include algorithm dropdown button stylesheet-->
-        <button class="dropbtn">Select Algorithm</button>
+        <button class="dropbtn"><span id="dropButtonName">Select Algorithm</span></button>
         <script src="~/js/chooseAlgorithm.js"></script>
         <div class="dropdown-content">
             <input type="button" value="AD-HOC SEARCH" onclick="chooseAdHoc()">
@@ -50,7 +49,14 @@
         <!--Export necessary information and start animation functions-->
         <link rel="stylesheet" href="~/css/StartButtonStyle.css" />
         <script src="~/js/StartAnimation.js"></script>
+        <script src="~/js/CreateGraph.js"></script>
         <button class="button" onclick="startAnimation()">Start</button>
+    </div>
+
+    <div id="canvasParent">
+        <link rel="stylesheet" href="~/css/CanvasStyle.css" />
+        
+        <canvas id="graphCanvas"></canvas>
     </div>
 
 </body>
