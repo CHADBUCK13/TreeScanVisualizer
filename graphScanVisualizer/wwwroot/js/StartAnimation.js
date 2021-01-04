@@ -1,13 +1,14 @@
 ﻿function startAnimation()
 {
     createGraph();
-
+    
     if (selectedAglorithm == 0)
     {
         animateAdHoc();
     }
 
-    else if (selectedAglorithm == 1) {
+    else if (selectedAglorithm == 1)
+    {
         animateDepthFirst();
     }
 
