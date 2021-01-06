@@ -1,5 +1,6 @@
 ﻿//Creat graph for later backend use with algorithms (2d array where index is a smallest cirlce and each array is all linked circles)
 var graph = [];
+var circlePos;
 for (let i = 0; i < inputGraphSize; i++) {
     graph.push([]);
 }
@@ -33,7 +34,7 @@ function createGraph() {
     context.fillText("0", x - 4, y + 4);
 
     //Create array to store position of each circle drawn and input first circle coordinate
-    var circlePos = [[x, y]];
+    circlePos =[[x, y]];
     var circlePosLength = 1;
 
     //Creat arrays to store whether or not right or left direction arrow has been drawn already 
