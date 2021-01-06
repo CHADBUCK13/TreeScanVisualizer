@@ -1,22 +1,23 @@
-﻿//TODO: Change dropdown button to current algorithm
+﻿var selectedAglorithm = 0;
+var displayAlgorithm = document.getElementById("dropButtonName");
 
-var selectedAglorithm = 0; // 0 = Ad-Hoc, 1 = Depth-First, 2 = Breadth-First
-var dropButtonName = document.getElementById("dropButtonName");
 
-function chooseAdHoc()
-{
+function choosePreOrder() {
     selectedAglorithm = 0;
-    dropButtonName.innerHTML = "AD-HOC SEARCH";
+    displayAlgorithm.innerHTML = "PRE-ORDER SEARCH";
 }
 
-function chooseDepthFirst()
-{
+function chooseInOrder() {
     selectedAglorithm = 1;
-    dropButtonName.innerHTML = "DEPTH-FIRST SEARCH";
+    displayAlgorithm.innerHTML = "IN-ORDER SEARCH";
 }
 
-function chooseBreadthFirst()
-{
+function choosePostOrder() {
     selectedAglorithm = 2;
-    dropButtonName.innerHTML = "BREADTH-FIRST SEARCH";
+    displayAlgorithm.innerHTML = "POST-ORDER SEARCH";
+}
+
+function chooseBreadthFirst() {
+    selectedAglorithm = 3;
+    displayAlgorithm.innerHTML = "BREADTH-FIRST SEARCH";
 }
