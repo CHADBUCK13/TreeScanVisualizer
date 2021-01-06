@@ -27,7 +27,7 @@
     <div class="slidecontainer">
         <!--Choose graph size on range slider-->
         <link rel="stylesheet" href="~/css/graphSizeSlider.css" />   <!--include slider stylesheet-->
-        <input type="range" min="2" max="15" value="50" class="slider" id="graphSize" />
+        <input type="range" min="2" max="15" value="15" class="slider" id="graphSize" />
         <p>Graph Size: <span id="graphSizeOutput"></span></p>
         <script src="~/js/graphSizeSliderControl.js"></script>
         <noscript>Sorry, your browser does not support JavaScript</noscript>
@@ -38,9 +38,11 @@
         <link rel="stylesheet" href="~/css/algorithmDropdown.css" /> <!--include algorithm dropdown button stylesheet-->
         <button class="dropbtn"><span id="dropButtonName">Select Algorithm</span></button>
         <script src="~/js/chooseAlgorithm.js"></script>
+
         <div class="dropdown-content">
-            <input type="button" value="AD-HOC SEARCH" onclick="chooseAdHoc()">
-            <input type="button" value="DEPTH-FIRST SEARCH" onclick="chooseDepthFirst()">
+            <input type="button" value="PRE-ORDER SEARCH" onclick="choosePreOrder()">
+            <input type="button" value="IN-ORDER SEARCH" onclick="chooseInOrder()">
+            <input type="button" value="POST-ORDER SEARCH" onclick="choosePostOrder()">
             <input type="button" value="BREADTH-FIRST SEARCH" onclick="chooseBreadthFirst()">
         </div>
     </div>
@@ -55,7 +57,6 @@
 
     <div id="canvasParent">
         <link rel="stylesheet" href="~/css/CanvasStyle.css" />
-        
         <canvas id="graphCanvas"  draggable="true"></canvas>
     </div>
 
