@@ -1,5 +1,4 @@
-﻿var selectedAglorithm = 0;
-var displayAlgorithm = document.querySelector("dropButtonName");
+﻿//TODO: Change dropdown button to current algorithm
 
 
 function choosePreOrder() {

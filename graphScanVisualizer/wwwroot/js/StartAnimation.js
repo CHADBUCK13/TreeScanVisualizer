@@ -2,19 +2,18 @@
 {
     createGraph();
     
-    if (selectedAglorithm == 0) {
-        animatePreOrder();
+    if (selectedAglorithm == 0)
+    {
+        animateAdHoc();
     }
 
-    else if (selectedAglorithm == 1) {
-        animateInOrder();
+    else if (selectedAglorithm == 1)
+    {
+        animateDepthFirst();
     }
 
-    else if (selectedAglorithm == 2) {
-        animatePost-order();
-    }
-
-    else if (selectedAglorithm == 3) {
-        animateBreadthFirst;
+    else if (selectedAglorithm == 2)
+    {
+        animateBreadthFirst();
     }
 }
