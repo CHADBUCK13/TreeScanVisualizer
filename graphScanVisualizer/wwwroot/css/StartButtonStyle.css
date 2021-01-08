@@ -1,10 +1,11 @@
-﻿.button 
-{
-    background-color: #00eded;
+﻿.button {
+    background-color: #76d5e8;
     width: 180px;
     padding: 16px;
     font-size: 16px;
     float: right;
 }
 
-.button:hover {background-color: #02dbdb;}
+    .button:hover {
+        background-color: #82e6fa;
+    }

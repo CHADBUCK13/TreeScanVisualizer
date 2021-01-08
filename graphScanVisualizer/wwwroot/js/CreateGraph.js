@@ -1,14 +1,13 @@
 ﻿//Creat graph for later backend use with algorithms (2d array where index is a smallest cirlce and each array is all linked circles)
-var graph = [];
+var graph;
 var circlePos;
-for (let i = 0; i < inputGraphSize; i++) {
-    graph.push([]);
-}
-function createGraph() {
-    //Get canvas
-    var canvas = document.getElementById("graphCanvas");
-    var context = canvas.getContext("2d");
 
+function createGraph() {
+    
+    //Get canvas
+    var canvas = document.getElementById("backGroundCanvas");
+    var context = canvas.getContext("2d");
+    
     //Adjust virtual canvas size for image quality
     var size = 1000;
     var scale = window.devicePixelRatio;
@@ -19,6 +18,11 @@ function createGraph() {
     //Start context/circle position
     var x = canvasSize / 2;
     var y = canvasSize / 20;
+
+    graph = [[-1,-1]];
+    for (let i = 0; i < inputGraphSize; i++) {
+        graph.push([-1, -1]);
+    }
 
     //Value by which coordinate will change to draw next circle
     var xChange = 50;
@@ -84,7 +88,7 @@ function createGraph() {
                     context.stroke();
                     circlePos.push([x, y]);
                     circlePosLength++;
-                    graph[startCircle].push(i + 1);                  
+                    graph[startCircle].splice(0,1,i + 1); //set index 0 to circle attached to left                  
 
                     //Input current number
                     context.font = "15px Arial";
@@ -120,7 +124,7 @@ function createGraph() {
                     context.stroke();
                     circlePos.push([x, y]);
                     circlePosLength++;
-                    graph[startCircle].push(i + 1);   
+                    graph[startCircle].splice(1, 1, i + 1); //set index 1 to circle attached to left    
 
                     //Input current number
                     context.font = "15px Arial";
@@ -140,6 +144,8 @@ function createGraph() {
         }          
                
     }
+
+    
 }
 
 
@@ -162,4 +168,4 @@ function checkEqualCoordinates(array, coordinate, arrayLength) {
     }
 }
 
-//Save each circle position in array corresponding to number stored in circle then just fill that circle instead of bolding line
+

@@ -1,9 +1,11 @@
-﻿canvas 
-{
+﻿canvas {
     margin-top:10px;
     display: block;
+    top:0;
+    left:0;
     width: 100%;
-    height: 100%;
-    background-color:#e5e5e5;
+    height: 80%;
+    background-color:transparent;
     overflow:auto;
+    
 }

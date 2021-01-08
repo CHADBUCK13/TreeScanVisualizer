@@ -5,18 +5,20 @@
 }
 
 .dropbtn {
-    background-color: #00eded;
+    background-color: #76d5e8;
     color: black;
     width: 210px;
     padding-top: 18px;
-    padding-bottom:18px;
-    padding-left:13px;
-    padding-right:13px;
+    padding-bottom: 18px;
+    padding-left: 13px;
+    padding-right: 13px;
     font-size: 16px;
     border: none;
 }
 
-.dropdown:hover .dropbtn{background-color: #02dbdb;}
+.dropdown:hover .dropbtn {
+    background-color: #76d5e8;
+}
 
 .dropdown-content {
     display: none;

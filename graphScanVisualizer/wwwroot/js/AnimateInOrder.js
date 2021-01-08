@@ -1,14 +1,18 @@
-﻿function animateInOrder()
+﻿function animateInOrder(nodeIndex)
 {
-    //TODO
-    //!arr[i].length returns true if node is empty
-    //!Array.isArray(arr[i]) returns true if node does not exist
+    //Get current node
+    var node = graph[nodeIndex];
 
-   /* preorder(node)
-    if (node == empty || node does not exist)
-        return
-    animateNodeVisit(node)
-    preorder(node.left)
-    preorder(node.right)
-    */
+    //If there is a node to the left go recursively to node on left
+    if (Array.isArray(graph[node[0]])) {
+        animateInOrder(node[0]); 
+    }
+
+    //Push current nodeIndex to visitOrder to be used for animation
+    visitOrder.push(nodeIndex);
+
+    //If there is a node on the right go recursively to node on right
+    if (Array.isArray(graph[node[1]])) {
+        animateInOrder(node[1]); 
+    }
 }

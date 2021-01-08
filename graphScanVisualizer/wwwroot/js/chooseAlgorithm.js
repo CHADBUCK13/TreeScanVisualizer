@@ -1,4 +1,4 @@
-﻿var selectedAglorithm = 0;
+﻿var selectedAglorithm = -1;
 var displayAlgorithm = document.getElementById("dropButtonName");
 
 
