@@ -1,0 +1,20 @@
+﻿@page
+@model graphScanVisualizer.Pages.InfoPostOrderModel
+@{
+}
+<body>
+    <div class="dropdown" id="algorithmDropdown">
+        <link rel="stylesheet" href="~/css/InfoAlgorithmDropdown.css" /> <!--include algorithm dropdown button stylesheet-->
+
+        <div class="dropdown">
+            <button class="dropbtn">Select Algorithm</button>
+            <div class="dropdown-content">
+                <a asp-page="/InfoPreOrder">PRE-ORDER SEARCH</a>
+                <a asp-page="/InfoInOrder">IN-ORDER SEARCH</a>
+                <a asp-page="/InfoPostOrder">POST-ORDER SEARCH</a>
+                <a asp-page="/InfoBreadtOrder">BREADTH-FIRST SEARCH</a>
+            </div>
+        </div>
+
+    </div>
+</body>
