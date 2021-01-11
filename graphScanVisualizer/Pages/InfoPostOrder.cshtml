@@ -4,7 +4,7 @@
 }
 <body>
     <div class="dropdown" id="algorithmDropdown">
-        <link rel="stylesheet" href="~/css/InfoAlgorithmDropdown.css" /> <!--include algorithm dropdown button stylesheet-->
+        <link rel="stylesheet" href="~/css/InfoAlgorithmDropdown.css" />
 
         <div class="dropdown">
             <button class="dropbtn">Select Algorithm</button>
@@ -12,9 +12,82 @@
                 <a asp-page="/InfoPreOrder">PRE-ORDER SEARCH</a>
                 <a asp-page="/InfoInOrder">IN-ORDER SEARCH</a>
                 <a asp-page="/InfoPostOrder">POST-ORDER SEARCH</a>
-                <a asp-page="/InfoBreadtOrder">BREADTH-FIRST SEARCH</a>
+                <a asp-page="/InfoBreadthOrder">BREADTH-FIRST SEARCH</a>
             </div>
         </div>
 
     </div>
+
+    <h1 style="margin-top: 20px">Post-Order Traversal</h1>
+    <p style="margin-top:10px; font-size:20px;">
+        The Post-Order Traversal algorithm is a Depth-First tree traversal algorithm that traverses the tree structure reaching the end of each branch before processing any node of the subtree(learn more about the tree data structure <a asp-page="/TreeDataStructure">here</a>). 
+        The algorithm's goal is to reach the bottom of each 'branch' of the tree structure prioritizing left branches first. It then
+        processes the deepest nodes before returning to shallower nodes.
+        This is achieved using <a href="https://en.wikipedia.org/wiki/Recursion">recursion</a> as we can see from the following flow diagram. If you're not familiar with recursion you may want
+        to read up on it before trying to learn these algorithms.
+    </p>
+
+    <img style="display:block; margin-left:auto; margin-right:auto; width:55%;" class="center" src="~/Graphics/PostOrderFlowDiagram.png" />
+    <p style="text-align:center;">Image courtesy of Purnima Gupta from <a href="https://levelup.gitconnected.com/how-to-traverse-a-tree-using-javascript-c9a79826e819">gitconnected.com</a></p>
+
+    <p style="margin-top:10px; font-size:20px;">
+        The blue circle above calls the postOrder() function passing the root node to the function shown inside the big rectangle. The first box contains the function call
+        then, inside the yellow diamond, it checks if the current node has a node to the left. If there is a node there, it will pass this node to the postOrder() function, calling it
+        recursively. That's why the algorithm is called a depth-first traversal; the tree will be traversed as deep as possible on the left branch before moving to a right branch or processing the node.
+        Let's take a look at the flow diagram again,
+        notice that the function will be continuously called until there is no node to the left of the current node. As this happens, it will create what is called a <a href="https://en.wikipedia.org/wiki/Call_stack">call stack</a>.
+        Call stacks are how the program will remember where to return to once it reaches the end of the left most branch.
+    </p>
+    <p style="font-size:20px;">
+        Once the program doesn't find a node to the left (i.e reaches the end of the left-most branch of a particular subtree), it will check if there is a node on
+        the right. If there is a node there it will move to this node and check if there is a node to the left, if there is none it will check if there is one on the right and so the function continues. 
+        If there is no node to the left or right, however, it will print/process that node.
+        Note that, although this diagram simply prints the value at the current node, it is also possible to process the node in some other way. For example, you may be looking for specific data
+        and by 'processing' the node you could search that node for said data. After processing that node it will return to the most recent entry to the call stack and check if there is a node to the right.
+        If there is a node it will move there and continue as previously described. If there is no node there it will process this node and again return to the most recent node entry in the call stack.
+    </p>
+
+    <p style="margin-top:10px; font-size:20px;">The psuedo-code for the postOrder() function is below</p>
+    <p style="margin-top:10px; font-size:20px;">
+        <b>main</b> { <br />
+        &emsp; postOrder(root.node)<br />
+        }<br />
+
+        <b>postOrder</b>(node) {<br />
+        &emsp;if (node.left exists)<br />
+        &emsp; &emsp; postOrder(node.left)<br />
+        &emsp;if (node.right exists)<br />
+        &emsp;&emsp; postOrder(node.right)<br />
+        &emsp; process(node)<br />
+        }<br />
+    </p>
+
+    <p style="margin-top:10px; font-size:20px;">
+        Now that we sort of understand how the program will work, let's go through the graphic below to visualize how the algorithm works on a concrete example.
+    </p>
+
+    <img style="display:block; margin-left:auto; margin-right:auto;" class="center"
+         src="https://miro.medium.com/max/500/0*najybdVtx7wCsu_u.gif" srcset="https://miro.medium.com/max/276/0*najybdVtx7wCsu_u.gif 276w, https://miro.medium.com/max/500/0*najybdVtx7wCsu_u.gif 500w" sizes="500px" />
+    <p style="text-align:center;">Image courtesy of Purnima Gupta from <a href="https://levelup.gitconnected.com/how-to-traverse-a-tree-using-javascript-c9a79826e819">gitconnected.com</a></p>
+
+    <p style="margin-top:10px; font-size:20px;">
+        In this graphic the root node is 20 and, as is the case with most tree traversal algorithms, we start at the root node. The program checks if there is a node to the left and there is: node 15.
+        The program moves to node 15, stores 20 in the call stack and checks if there is a node to the left: 13. The program moves to node 13, stores 15 in the call stack and checks if there is a node
+        to the left: no, checks if there is a node to the right: no, so, it processes this node. What happens now? The program looks at the most recent entry in the call stack and returns to that function.
+        In this case, it would return to the function for node 15 and pop(delete) that node from the call stack. Recall, that the function for node 15 has already completed the first step
+        (checking if there is a node to the left) so it moves to the second step, checking if there is a node to the right: 18. The program moves to 18, stores 15 in the call stack again, checks if there
+        is a node to the left: no, checks if there is a node to the right: no, so, it processes the node.
+        After processing the node it has no other functions to call so it returns to the most recent entry in the call stack: 15 and pops 15 from the call stack. 
+        The function for node 15 has now completed the first two steps so it processes the node. Since it has no other functions to call, it returns to the most recent entry in the call stack: 20
+        and pops 20 from the call stack. Here, the function for node 20 has only checked if there is a node to the left, it must now check if there is a node to the right: 25. It moves to 25, stores 20 in the
+        call stack, checks if there is a node to the left: no, checks if there is a node to the right: 30. It moves to node 30, stores 25 in the call stack, checks if there is a node to the left: no, checks if
+        there is a node to the right: no, so, it processes node 30. Then, it returns to the most recent entry to the call stack: 25, 25 is popped from the call stack, it is processed
+        (because it has completed the first two steps and is on to the third step: processing). Then, it returns to 20 (the most recent entry to the call stack), pops 20 from the call stack and processes node 20.
+        Now the call stack is empty, and there are no more functions to call so we are done; we have traversed the entire tree.
+
+    </p>
+
+    <p style="margin-top:20px; font-size:20px;">
+        That's it, now you're ready to test your knowledge on the <a asp-page="/index">visualizer</a>! See if you know where the algorithm will go next before it shows you.
+    </p>
 </body>

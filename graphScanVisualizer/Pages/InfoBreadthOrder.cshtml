@@ -4,7 +4,7 @@
 }
 <body>
     <div class="dropdown" id="algorithmDropdown">
-        <link rel="stylesheet" href="~/css/InfoAlgorithmDropdown.css" /> <!--include algorithm dropdown button stylesheet-->
+        <link rel="stylesheet" href="~/css/InfoAlgorithmDropdown.css" />
 
         <div class="dropdown">
             <button class="dropbtn">Select Algorithm</button>
@@ -12,9 +12,71 @@
                 <a asp-page="/InfoPreOrder">PRE-ORDER SEARCH</a>
                 <a asp-page="/InfoInOrder">IN-ORDER SEARCH</a>
                 <a asp-page="/InfoPostOrder">POST-ORDER SEARCH</a>
-                <a asp-page="/InfoBreadtOrder">BREADTH-FIRST SEARCH</a>
+                <a asp-page="/InfoBreadthOrder">BREADTH-FIRST SEARCH</a>
             </div>
         </div>
-
     </div>
+
+    <h1 style="margin-top: 20px">Breadth-First Traversal</h1>
+    <p style="margin-top:10px; font-size:20px;">
+        The Breadth-First Traversal algorithm is a tree traversal algorithm that processes each node on a level before moving to the next level (learn more about the tree data structure <a asp-page="/TreeDataStructure">here</a>).
+        Unlike the other algorithms on this website, this algorithm does not use recursion. Instead it uses a while loop and a <a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">queue</a>
+        to traverse the tree. Queues are pretty much exactly what they sound like, the essentially create a line/order in which elements will be added to one end and removed (and used) from the other.
+    </p>
+    <p style="margin-top:10px; font-size:20px;">
+        The algorithm begins by adding the root node to the queue. After adding the root node to the queue, the queue then enters into a while loop which only ends once the queue is empty. Upon entering the while
+        loop the root node is removed from the queue and stored in a variable. The root node will then be processed. The program will then check to see if there is a node to the left of the root node, if there
+        exists one it will add it to the queue. Same goes for the right, if there is a node to the right, it is added to the queue. Then we loop back to the beginning, the first node in the queue (the node to the
+        left of the root node) goes through the same process, if it has a node to left or the right they are added to the queue specifically in that order. On the next loop, same thing, now we are the node to the
+        right of the root node. This will go on until all the nodes have been added and subsequently removed from the tree.
+    </p>
+
+    <p style="margin-top:10px; font-size:20px;">The psuedo-code for the breathOrder() function is below</p>
+    <p style="margin-top:10px; font-size:20px;">
+        <b>breadthOrder</b>(root.node) {<br />
+        &emsp; q ← create empty queue<br />
+        &emsp; q.enqueue(root)<br />
+        &emsp; while (q is not empty)<br />
+        &emsp;&emsp; node ← q.dequeue()<br />
+        &emsp;&emsp; process(node)<br />
+        &emsp;&emsp; if (node.left exists)<br />
+        &emsp;&emsp;&emsp; q.enqueue(node.left)<br />
+        &emsp;&emsp; if (node.right exists)<br />
+        &emsp;&emsp;&emsp; q.enqueue(node.right)<br />
+        }<br />
+    </p>
+
+    <p style="margin-top:10px; font-size:20px;">
+        This algorithm effectively allows us to travel from left to right across each node, starting from the root, before move down a level on the tree.
+        Now that we understand the program let's go through a concrete example so we can see this in action.
+    </p>
+
+    <img style="display: block; margin-left: auto; margin-right: auto;" src="~/Graphics/BreadthFirstGraphic.png" />
+    <p style="text-align:center;">Image courtesy of <a href="https://en.wikipedia.org/wiki/Tree_traversal#cite_note-3">wikipedia.com</a></p>
+
+    <p style="margin-top:10px; font-size:20px;">
+        In the above example, we start with the root node f. This root node would be added to an empty queue that was created, so q = {nodeF}.
+        Next, the program enters the while loop, sets node = nodeF, processes nodeF and removes nodeF from the queue: q = {}. The program checks if there is a node to the left: nodeB, adds it to the queue
+        and if there is a node to the right: G, adds it to the queue (so, q = {nodeB, nodeG}). The program then restarts the loop, sets node = nodeB, processes nodeB and removes nodeB from the queue:
+        q = {nodeG}. Next, it checks if there is a node to the left: nodeA, adds it to the queue and checks if there is a node to the right: nodeD, adds it to the queue (so, q={nodeG,nodeA,nodeD}).
+        At this point, to avoid repeating this same thing I will simply list the walkthrough steps: <br />
+        node = nodeG, process/remove nodeG, node.left does not exist, node.right = nodeI, q = {nodeA,nodeD,nodeI} <br />
+        node = nodeA, process/remove nodeA, node.left does not exist, node.right does not exists, q = {nodeD,nodeI} <br />
+        node = nodeD, process/remove nodeD, node.left = nodeC, node.right = nodeE, q = {nodeI, nodeC, nodeE} <br />
+        node = nodeI, process/remove nodeI, node.left = nodeH, node.right does not exist, q = {nodeC, nodeE, nodeH} <br />
+        node = nodeC, process/remove nodeC, node.left does not exist, node.right does not exist, q = {nodeE, nodeH} <br />
+        node = nodeE, process/remove nodeE, node.left does not exist, node.right does not exist, q = {nodeH} <br />
+        node = nodeH, process/remove nodeH, node.left does not exist, node.right does not exist, q = {} <br />
+        q is empty -> break loop -> return function<br /> <br />
+
+        As we can see from this walkthrough we can a processing order of: <br />
+        level 1: F <br />
+        level 2: B, G <br />
+        level 3: A, D, I <br />
+        level 4: C, E, H <br />
+    </p>
+
+    <p style="margin-top:20px; font-size:20px;">
+        That's it, now you're ready to test your knowledge on the <a asp-page="/index">visualizer</a>! See if you know where the algorithm will go next before it shows you.
+    </p>
 </body>

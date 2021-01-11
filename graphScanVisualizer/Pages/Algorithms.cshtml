@@ -1,23 +1,62 @@
 ﻿@page
 
 <body>
-    <p style="font-size:20px; text-align:center">Hover over the dropdown menu below to choose which algorithm you would like to learn more about</p>
+    <p style="font-size:20px; text-align:center;"><i>Hover over the dropdown menu below to choose which algorithm you would like to learn more about</i></p>
 
-    <div class="dropdown" id="algorithmDropdown">        
-        <link rel="stylesheet" href="~/css/InfoAlgorithmDropdown.css" /> <!--include algorithm dropdown button stylesheet-->
-       
+    <div class="dropdown" id="algorithmDropdown">
+        <link rel="stylesheet" href="~/css/InfoAlgorithmDropdown.css" />
+
         <div class="dropdown">
             <button class="dropbtn">Select Algorithm</button>
             <div class="dropdown-content">
                 <a asp-page="/InfoPreOrder">PRE-ORDER SEARCH</a>
                 <a asp-page="/InfoInOrder">IN-ORDER SEARCH</a>
                 <a asp-page="/InfoPostOrder">POST-ORDER SEARCH</a>
-                <a asp-page="/InfoBreadtOrder">BREADTH-FIRST SEARCH</a>
+                <a asp-page="/InfoBreadthOrder">BREADTH-FIRST SEARCH</a>
             </div>
         </div>
-        
+
     </div>
 
-    <p><span id="algorithmInfo"></span></p>
+    <h1 style="margin-top: 20px">Tree Traversal Algorithms</h1>
+    <p style="margin-top:10px; font-size:20px;">
+        Tree traversal alogorithms are a type of graph traversal algorithm that allow each node in a tree data structure to be processed, exactly one time. Tree data structures can be of several
+        forms, however, on this website we will be covering only pseudo-binary trees. They are pseudo-binary trees because although they have at most two branches off of each node, each left subtree will
+        not necessarily have smaller values. Tree traversal algorithms can be classified based on the order in which they traverse/process the tree. There are depth-first traversal algorithms and
+        a breadth-first traversal algorithm.
+    </p>
+
+    <p style="margin-top:10px; font-size:20px;">
+        <b>Depth-first</b> traversal algorithms are so named because they reach the bottom of each branch before moving on to their sibling branches. These algorithms can be further subclassified using three
+        abbreviations: <br /><br />
+        N: Process current node <br />
+        L: Recursively traverse to node on the left <br />
+        R: Recursively traverse to node on the right <br /><br />
+
+        <a asp-page="/InfoPreOrder">Pre-order</a>: is an NLR algorithm meaning that it processes the node, then traverses left, then right. Further explanation on the pre-order algorithm is accessible either
+        through the dropdown above or by clicking the link.<br />
+
+        <a asp-page="/InfoInOrder">In-order</a>: is an LNR algorithm meaning that it traverses left, processes the node, then traverses right. Further explanation on the in-order algorithm is accessible either
+        through the dropdown above or by clicking the link.<br />
+
+        <a asp-page="/InfoPostOrder">Post-order</a>: is an LRN algorithm meaning that it traverses left, then right, then processes the node. Further explanation on the pre-order algorithm is accessible either
+        through the dropdown above or by clicking the link.<br />
+    </p>
+    <p style="margin-top:10px; font-size:20px;">
+        Depth-first traversal algorithms are used in strategy-games, pathfinding algorithms, finding strongly connect components, topological sorting, planarity testing and many others!
+    </p>
+
+    <p style="margin-top:10px; font-size:20px;">
+        <b>Breadth-first</b> traversal algorithms (also known as level order) traverses a tree by process all neighbouring nodes on one level before going deeper into the tree. Further explanation on the pre-order 
+        algorithm is accessible either through the dropdown above or by clicking this <a asp-page="/InfoBreadthOrder">link</a>.<br /><br />
+
+
+        Breadth-first traversal algorithms are used in garbage collection/Cheney's algorithm, pathfinding, Cuthill-McKee mesh numbering, Ford-Fulkerson method, Aho-Cirasick pattern matter and many others!
+    </p>
+
+    <p style="margin-top:10px; font-size:20px;">
+        It is also worth noting that there are many other types of tree traversal algorithms that do not fit into these categories like the Monte Carlo tree traversal algorithm
+        which concentrates on analyzing the most promising moves and expanding the search tree based on a random sampling of subtrees.
+    </p>
 </body>
 

@@ -2,3 +2,29 @@
 @model graphScanVisualizer.Pages.TreeDataStructureModel
 @{
 }
+<h1 style="margin-top: 20px">Tree Data Structure</h1>
+
+<p style="margin-top:10px; font-size:20px;">
+    Tree data structures are sorted collections of data that allow for efficient search and inserting algorithms to be implemented. Trees consist of nodes, connected by edges which all
+    eventually link back the root node as you can see in the figure below. Each node may contain one or more data 'items', and each node may connect to zero, one or several other nodes. If a node 'a'
+    is connected to another node 'b' directly below it, node 'a' would be considered the parent of it's child node 'b'. If a third node 'c' were to be connected to 'a' as well, nodes 'b' and 'c'
+    would be considered siblings. A subtree is created each time a new node is added, for example, when L,E,F and G were added this created a subtree as shown in the figure. Or take
+    for example, when H was added, it created a leaf node which by definition is a subtree consisting of exactly one node.
+    By this definition a tree is a recursive data strucutre because each node is the root of a smaller subtree.
+</p>
+
+<img style="display: block; margin-left: auto; margin-right: auto;" src="~/Graphics/InfoTreeStructure.png" />
+<p style="text-align:center">Image courtesy of Vijini Mallawaarachchi from <a href="https://towardsdatascience.com/8-useful-tree-data-structures-worth-knowing-8532c7231e8c">towardsdatascience.com</a></p>
+
+<p style="margin-top:10px; font-size:20px;">
+    Binary trees are a subset of tree data structures. It is a tree structure where there are at most two branches off of any one node and for ever node X all items in its left subtree are smaller than X and the items in the right
+    subtree are larger than X. As we can see from the tree on the right in the figure, because there is a 7 in the right subtree of 2 this is no longer a binary tree. Binary trees are mostly
+    used for searching because they have an average depth on the order of log<sub>2</sub>(N).
+</p>
+
+<img style="display: block; margin-left: auto; margin-right: auto;" src="~/Graphics/InfoBinarySearchTree.png" />
+<p style="text-align:center">Image courtesy of Chris Gregg from <a href="https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1172/lectures/21-BinarySearchTrees/21-BinarySearchTrees.pdf">Stanford University</a></p>
+
+<p style="margin-top:10px; font-size:20px;">
+    This is just a brief explanation of Tree data structure. For more information please visit Wikipedia's article on <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)">tree data structures</a>
+</p>
