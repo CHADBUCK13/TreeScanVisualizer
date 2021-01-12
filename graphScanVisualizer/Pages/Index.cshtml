@@ -33,19 +33,19 @@
     </div>
 
     <div class="slidecontainer">
-        <!--Choose graph size on range slider-->
-        <link rel="stylesheet" href="~/css/graphSizeSlider.css" />   <!--include slider stylesheet-->
+        <!--Choose tree size on range slider-->
+        <link rel="stylesheet" href="~/css/TreeSizeSlider.css" />   <!--include slider stylesheet-->
         <input type="range" min="2" max="15" value="15" class="slider" id="graphSize" />
-        <p>Graph Size: <span id="graphSizeOutput"></span></p>
-        <script src="~/js/graphSizeSliderControl.js"></script>
+        <p>Tree Size: <span id="graphSizeOutput"></span></p>
+        <script src="~/js/TreeSizeSliderControl.js"></script>
         <noscript>Sorry, your browser does not support JavaScript</noscript>
     </div>
 
     <div class="dropdown" id="algorithmDropdown">
         <!--Choose graph traversing algorithm-->
-        <link rel="stylesheet" href="~/css/algorithmDropdown.css" /> <!--include algorithm dropdown button stylesheet-->
+        <link rel="stylesheet" href="~/css/AlgorithmDropdown.css" /> <!--include algorithm dropdown button stylesheet-->
         <button class="dropbtn"><span id="dropButtonName">Select Algorithm</span></button>
-        <script src="~/js/chooseAlgorithm.js"></script>
+        <script src="~/js/ChooseAlgorithm.js"></script>
 
         <div class="dropdown-content">
             <input type="button" value="PRE-ORDER SEARCH" onclick="choosePreOrder()">

@@ -3,9 +3,10 @@
 @{
 }
 
+<!--Dropdown button followed by short article on Pre-order traversal with images, graphics linked to by https and links to appropraites pages and websites-->
 <body>
     <div class="dropdown" id="algorithmDropdown">
-        <link rel="stylesheet" href="~/css/InfoAlgorithmDropdown.css" /> 
+        <link rel="stylesheet" href="~/css/InfoAlgorithmDropdown.css" />
 
         <div class="dropdown">
             <button class="dropbtn">Select Algorithm</button>
@@ -21,7 +22,7 @@
 
     <h1 style="margin-top: 20px">Pre-Order Traversal</h1>
     <p style="margin-top:10px; font-size:20px;">
-        The Pre-Order Search algorithm is a Depth-First tree traversal algorithm that processess each node as it traverses the tree structure(learn more about the tree data structure <a asp-page="/TreeDataStructure">here</a>). 
+        The Pre-Order Search algorithm is a Depth-First tree traversal algorithm that processess each node as it traverses the tree structure(learn more about the tree data structure <a asp-page="/TreeDataStructure">here</a>).
         The algorithm's goal is to reach the bottom of each 'branch' of the tree structure, prioritizing left branches first, while processing each node it passes by.
         This is achieved using <a href="https://en.wikipedia.org/wiki/Recursion">recursion</a> as we can see from the following flow diagram. If you're not familiar with recursion you may want
         to read up on it before trying to learn these algorithms.
@@ -78,9 +79,9 @@
         It will move to the next step, which is checking if a right node of 15 exists: 18. The algorithm will then process node 18, store 15 in the call stack, check if there is a node to the left: no, check if there
         is a node to the right: no, so, it will return to 15. But what happens now? 15 has completed all its steps, so it will simply return to the most recent entry to the call stack: 20. Again in the function for processing node 20,
         we are at the step where we check if there is a node to the right: 25. 25 is then processed, 20 is stored in the call stack, no node to the left, node to the right: 30.
-        30 is processed, 25 is stored in the call stack, no node to the left, no node to the right so it returns to 25 and pops 25 from the call stack. 25 is also done so it returns to 20, pops 20 from the call 
+        30 is processed, 25 is stored in the call stack, no node to the left, no node to the right so it returns to 25 and pops 25 from the call stack. 25 is also done so it returns to 20, pops 20 from the call
         stack. Now the call stack is empty, and there are no more functions to call so we are done; we have traversed the entire tree.
-        
+
     </p>
 
     <p style="margin-top:20px; font-size:20px;">

@@ -2,6 +2,8 @@
 @model graphScanVisualizer.Pages.InfoPostOrderModel
 @{
 }
+
+<!--Dropdown button followed by short article on post-order traversal with images, graphics linked to by https and links to appropraites pages and websites-->
 <body>
     <div class="dropdown" id="algorithmDropdown">
         <link rel="stylesheet" href="~/css/InfoAlgorithmDropdown.css" />
@@ -20,7 +22,7 @@
 
     <h1 style="margin-top: 20px">Post-Order Traversal</h1>
     <p style="margin-top:10px; font-size:20px;">
-        The Post-Order Traversal algorithm is a Depth-First tree traversal algorithm that traverses the tree structure reaching the end of each branch before processing any node of the subtree(learn more about the tree data structure <a asp-page="/TreeDataStructure">here</a>). 
+        The Post-Order Traversal algorithm is a Depth-First tree traversal algorithm that traverses the tree structure reaching the end of each branch before processing any node of the subtree(learn more about the tree data structure <a asp-page="/TreeDataStructure">here</a>).
         The algorithm's goal is to reach the bottom of each 'branch' of the tree structure prioritizing left branches first. It then
         processes the deepest nodes before returning to shallower nodes.
         This is achieved using <a href="https://en.wikipedia.org/wiki/Recursion">recursion</a> as we can see from the following flow diagram. If you're not familiar with recursion you may want
@@ -40,7 +42,7 @@
     </p>
     <p style="font-size:20px;">
         Once the program doesn't find a node to the left (i.e reaches the end of the left-most branch of a particular subtree), it will check if there is a node on
-        the right. If there is a node there it will move to this node and check if there is a node to the left, if there is none it will check if there is one on the right and so the function continues. 
+        the right. If there is a node there it will move to this node and check if there is a node to the left, if there is none it will check if there is one on the right and so the function continues.
         If there is no node to the left or right, however, it will print/process that node.
         Note that, although this diagram simply prints the value at the current node, it is also possible to process the node in some other way. For example, you may be looking for specific data
         and by 'processing' the node you could search that node for said data. After processing that node it will return to the most recent entry to the call stack and check if there is a node to the right.
@@ -77,7 +79,7 @@
         In this case, it would return to the function for node 15 and pop(delete) that node from the call stack. Recall, that the function for node 15 has already completed the first step
         (checking if there is a node to the left) so it moves to the second step, checking if there is a node to the right: 18. The program moves to 18, stores 15 in the call stack again, checks if there
         is a node to the left: no, checks if there is a node to the right: no, so, it processes the node.
-        After processing the node it has no other functions to call so it returns to the most recent entry in the call stack: 15 and pops 15 from the call stack. 
+        After processing the node it has no other functions to call so it returns to the most recent entry in the call stack: 15 and pops 15 from the call stack.
         The function for node 15 has now completed the first two steps so it processes the node. Since it has no other functions to call, it returns to the most recent entry in the call stack: 20
         and pops 20 from the call stack. Here, the function for node 20 has only checked if there is a node to the left, it must now check if there is a node to the right: 25. It moves to 25, stores 20 in the
         call stack, checks if there is a node to the left: no, checks if there is a node to the right: 30. It moves to node 30, stores 25 in the call stack, checks if there is a node to the left: no, checks if

@@ -1,4 +1,4 @@
-﻿var visitOrder;
+﻿var visitOrder; //Global visit order to be used for algorithm and output
 
 function startAnimation()
 {
@@ -15,7 +15,7 @@ function startAnimation()
     //Set/reset array to store visit order
     visitOrder = [];
 
-    //Start chosen algorithm
+    //Start chosen algorithm based on integer value of chosen algorithm in chooseAlgorithm();
     if (selectedAglorithm == 0) {
         animatePreOrder(0);
     }

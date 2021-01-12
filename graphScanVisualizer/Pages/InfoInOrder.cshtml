@@ -2,9 +2,11 @@
 @model graphScanVisualizer.Pages.InfoInOrderModel
 @{
 }
+
+<!--Dropdown button followed by short article on in-order traversal with images, graphics linked to by https and links to appropraites pages and websites-->
 <body>
     <div class="dropdown" id="algorithmDropdown">
-        <link rel="stylesheet" href="~/css/InfoAlgorithmDropdown.css" /> 
+        <link rel="stylesheet" href="~/css/InfoAlgorithmDropdown.css" />
 
         <div class="dropdown">
             <button class="dropbtn">Select Algorithm</button>
@@ -19,13 +21,13 @@
 
     <h1 style="margin-top: 20px">In-Order Traversal</h1>
     <p style="margin-top:10px; font-size:20px;">
-        The In-Order Traversal algorithm is a Depth-First tree traversal algorithm that traverses the tree structure reaching the end of each branch on the left before processing any node of the subtree (learn more about the tree data structure <a asp-page="/TreeDataStructure">here</a>). 
+        The In-Order Traversal algorithm is a Depth-First tree traversal algorithm that traverses the tree structure reaching the end of each branch on the left before processing any node of the subtree (learn more about the tree data structure <a asp-page="/TreeDataStructure">here</a>).
         After reaching the end of a left branch it processes each node moving backwards until it reaches a node which branches to the right. It then moves into the branch/subtree on the right and processes those nodes in the same fashion.
         This is achieved using <a href="https://en.wikipedia.org/wiki/Recursion">recursion</a> as we can see from the following flow diagram. If you're not familiar with recursion you may want
         to read up on it before trying to learn these algorithms.
     </p>
 
-    <img style="display:block; margin-left:auto; margin-right:auto; width:55%;" class="center" src="~/Graphics/InOrderFlowDiagram.png"/>
+    <img style="display:block; margin-left:auto; margin-right:auto; width:55%;" class="center" src="~/Graphics/InOrderFlowDiagram.png" />
     <p style="text-align:center;">Image courtesy of Purnima Gupta from <a href="https://levelup.gitconnected.com/how-to-traverse-a-tree-using-javascript-c9a79826e819">gitconnected.com</a></p>
 
     <p style="margin-top:10px; font-size:20px;">
@@ -34,10 +36,10 @@
         recursively. That's why the algorithm is called a depth-first traversal; the tree will be traversed as deep as possible on the left branch before moving to a right branch.
         Let's take a look at the flow diagram again,
         notice that the function will be continuously called until there is no node to the left of the current node. As this happens, it will create what is called a <a href="https://en.wikipedia.org/wiki/Call_stack">call stack</a>.
-        Call stacks are how the program will remember where to return to once it reaches the end of the left most branch. 
+        Call stacks are how the program will remember where to return to once it reaches the end of the left most branch.
     </p>
     <p style="font-size:20px;">
-        Once the program doesn't find a node to the left (i.e reaches the end of the left-most branch of a particular subtree), it will print/process that node. After that it will check if there is a node on 
+        Once the program doesn't find a node to the left (i.e reaches the end of the left-most branch of a particular subtree), it will print/process that node. After that it will check if there is a node on
         the right. If there is a node there it will move to this node and check if there is a node to the left and so the function continues. If there is no node to the right, however, it will return to the
         node with the most recent entry in the call stack. It will process that node then check if there is a node to the right and so on.
         Note that, although this diagram simply prints the value at the current node, it is also possible to process the node in some other way. For example, you may be looking for specific data
@@ -69,14 +71,14 @@
 
     <p style="margin-top:10px; font-size:20px;">
         In this graphic the root node is 20 and, as is the case with most tree traversal algorithms, we start at the root node. The program checks if there is a node to the left and there is: node 15.
-        The program moves to node 15, stores 20 in the call stack and checks if there is a node to the left: 13. The program moves to node 13, stores 15 in the call stack and checks if there is a node 
+        The program moves to node 15, stores 20 in the call stack and checks if there is a node to the left: 13. The program moves to node 13, stores 15 in the call stack and checks if there is a node
         to the left: no. So, it processes this node and checks if there is a node to the right: no. What happens now? The program looks at the most recent entry in the call stack and returns to that function.
-        In this case, it would return to the function for node 15 and pop(delete) that node from the call stack. Recall, that the function for node 15 has already completed the first step 
-        (checking if there is a node to the left) so it moves to the second step: processing the node. After processing the node it checks if there is a node to the right: 18, move to it and store 15 in the call stack. 
+        In this case, it would return to the function for node 15 and pop(delete) that node from the call stack. Recall, that the function for node 15 has already completed the first step
+        (checking if there is a node to the left) so it moves to the second step: processing the node. After processing the node it checks if there is a node to the right: 18, move to it and store 15 in the call stack.
         The program then checks if
-        there is a node to left: no, it processes node 18 and checks if there is a node to the right: no. Now what happens? It will return to 15, but 15 has now finished all its steps so, the program will return 
-        to the function for node 20 and pop it from the call stack. Again this function has already completed the first step, next it processes the node and checks if there is a node on the right: 25. 
-        It moves to 25, stores 20 in the call stack, checks if there is a node to the left: no, processes the node and checks if there is a node to the right: 30. The program moves to 30, stores 25 
+        there is a node to left: no, it processes node 18 and checks if there is a node to the right: no. Now what happens? It will return to 15, but 15 has now finished all its steps so, the program will return
+        to the function for node 20 and pop it from the call stack. Again this function has already completed the first step, next it processes the node and checks if there is a node on the right: 25.
+        It moves to 25, stores 20 in the call stack, checks if there is a node to the left: no, processes the node and checks if there is a node to the right: 30. The program moves to 30, stores 25
         in the call stack and checks if there is a node to the left: no, processes the node, checks if there is a node to the right no. So it returns to 25 and pops it from the call stack, 25 has already
         completed all its steps so it returns and pops 25 from the call stack. 20 has also completed all its steps so it returns and pops from the call stack. Now the call stack is empty, and there are no more
         functions to call so we are done; we have traversed the entire tree.

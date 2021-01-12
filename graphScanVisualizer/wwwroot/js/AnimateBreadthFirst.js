@@ -7,6 +7,7 @@
     node = graph[nodeIndex];
     queue.push(nodeIndex);
 
+    //Continue until queue is empty (i.e all nodes have been traversed)
     while (queue.length) {
         //Push node for current queue position to visitOrder
         nodeIndex = queue.shift();

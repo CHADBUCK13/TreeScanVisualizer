@@ -1,6 +1,12 @@
-﻿var selectedAglorithm = -1;
+﻿// selectedAlgorithm is global because it is used in all of the below functions and set to -1 to avoid confusion with chosen algorithm
+var selectedAglorithm = -1;
+
+//Get dropButton to change text on it onClick
 var displayAlgorithm = document.getElementById("dropButtonName");
 
+/* Each of the below functions, sets selected algorithm to integer value corresponding to condition in startAnimation().
+ * It also changes the text on the dropdown button to the selected algorithm.
+ */
 
 function choosePreOrder() {
     selectedAglorithm = 0;

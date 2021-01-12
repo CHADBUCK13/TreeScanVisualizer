@@ -1,25 +1,22 @@
-﻿.slidecontainer
-{
-    width:100%;
+﻿.slidecontainer {
+    width: 100%;
 }
 
-.slider
-{
-    -webkit-appearance:none;
-    width:100%;
-    border-radius:5px;
-    height:5px;
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    border-radius: 5px;
+    height: 5px;
     background: #010101;
-    outline:none;
+    outline: none;
     opacity: 0.8;
     -webkit-transition: .1s;
     transition: opacity .1s;
 }
 
-.slider:hover
-{
-    opacity: 1;
-}
+    .slider:hover {
+        opacity: 1;
+    }
 
     .slider::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -28,4 +25,3 @@
         height: 15px;
         background: #76d5e8;
     }
-

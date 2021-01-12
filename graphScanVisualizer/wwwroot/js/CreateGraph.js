@@ -1,4 +1,5 @@
-﻿//Creat graph for later backend use with algorithms (2d array where index is a smallest cirlce and each array is all linked circles)
+﻿//Creat graph and circlePos for later backend use with algorithms (graph: 2d array where index is a corresponds to node and each array is all linked nodes, 
+//circlePos: 2d array where index corresponds to circle and each array is [x,y] coordinates)
 var graph;
 var circlePos;
 
@@ -19,6 +20,7 @@ function createGraph() {
     var x = canvasSize / 2;
     var y = canvasSize / 20;
 
+    //Initialize graph array with -1 meaning no node is connected to [left,right], size of graph array is size of inputGraphSize
     graph = [[-1,-1]];
     for (let i = 0; i < inputGraphSize; i++) {
         graph.push([-1, -1]);
@@ -65,7 +67,12 @@ function createGraph() {
         var lineDrawn = false;
         while (!lineDrawn) {
 
-            //Draw line to new x,y coordinate if direction has not already been drawn
+            //Added to remove right bias due to order of if-else statement below (if want to go right but right is already drawn, see if can go left)
+            if (!left && rightDrawn[startCircle]) {
+                left = true;
+            }
+
+            //Draw line to new x,y coordinate if left direction has not already been drawn
             if (left && !leftDrawn[startCircle]) {
                 x = circlePos[startCircle][0];
                 y = circlePos[startCircle][1];
@@ -102,6 +109,7 @@ function createGraph() {
                 
             }
 
+            //Draw line to new x,y coordinate if right direction has not already been drawn
             else if (!rightDrawn[startCircle]) {
                 x = circlePos[startCircle][0];
                 y = circlePos[startCircle][1];
@@ -137,7 +145,7 @@ function createGraph() {
                 }
             }
 
-
+            //If both directions already drawn for startCircle, move to next circle and try again
             else {
                 startCircle++;
             }
@@ -149,7 +157,7 @@ function createGraph() {
 }
 
 
-//Check if coordinate(array of size 2) exists in array(array of arrays of size 2)
+//Check if coordinate(array of size 2) exists in array(2d array of arrays of size 2)
 function checkEqualCoordinates(array, coordinate, arrayLength) {
     var match = false;
     for (let i = 0; i < arrayLength; i++) {

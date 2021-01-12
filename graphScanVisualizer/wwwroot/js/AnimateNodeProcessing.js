@@ -1,4 +1,4 @@
-﻿var interval; //Global variable because if not previous instance will not be cleared because of scope
+﻿var interval; //Global variable because if not previous instance of setInterval() will not be cleared because of scope
 
 function animateNodeProcessing() {
     //Begin at index 0 (1st node)
@@ -12,6 +12,7 @@ function animateNodeProcessing() {
     //Animate algorithm path (1 second between each animation)
     interval = setInterval(function () {
 
+        //Continue looping as long as currentCircleIndex is in visitOrder[]
         if (currentCircleIndex < visitOrder.length) {
            
 
@@ -37,7 +38,7 @@ function animateNodeProcessing() {
             context.fill();
             context.stroke();
 
-            //
+            //Go to next circle in visitOrder[]
             currentCircleIndex++;
             
         }
