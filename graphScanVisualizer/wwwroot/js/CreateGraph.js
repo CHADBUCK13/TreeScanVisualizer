@@ -4,11 +4,11 @@ var graph;
 var circlePos;
 
 function createGraph() {
-    
+
     //Get canvas
     var canvas = document.getElementById("backGroundCanvas");
     var context = canvas.getContext("2d");
-    
+
     //Adjust virtual canvas size for image quality
     var size = 1000;
     var scale = window.devicePixelRatio;
@@ -21,7 +21,7 @@ function createGraph() {
     var y = canvasSize / 20;
 
     //Initialize graph array with -1 meaning no node is connected to [left,right], size of graph array is size of inputGraphSize
-    graph = [[-1,-1]];
+    graph = [[-1, -1]];
     for (let i = 0; i < inputGraphSize; i++) {
         graph.push([-1, -1]);
     }
@@ -40,7 +40,7 @@ function createGraph() {
     context.fillText("0", x - 4, y + 4);
 
     //Create array to store position of each circle drawn and input first circle coordinate
-    circlePos =[[x, y]];
+    circlePos = [[x, y]];
     var circlePosLength = 1;
 
     //Creat arrays to store whether or not right or left direction arrow has been drawn already 
@@ -56,10 +56,10 @@ function createGraph() {
 
         //Choose random circle that has already been drawn to start at
         var startCircle = Math.floor((Math.random() * (i + .99999)));
-   
+
         //~50/50 chance or going left or going right
         var left = false;
-        if (Math.random() > .5) {
+        if (Math.random() > .4) {
             left = true;
         }
 
@@ -81,8 +81,7 @@ function createGraph() {
                 y += yChange;
 
                 //Check if current coordinate is already taken, else restart current loop
-                if (!checkEqualCoordinates(circlePos, [x, y], circlePosLength))
-                {
+                if (!checkEqualCoordinates(circlePos, [x, y], circlePosLength)) {
                     //Draw line to next circle position
                     context.lineTo(x + 14, y - 14);
                     context.stroke();
@@ -95,18 +94,25 @@ function createGraph() {
                     context.stroke();
                     circlePos.push([x, y]);
                     circlePosLength++;
-                    graph[startCircle].splice(0,1,i + 1); //set index 0 to circle attached to left                  
+                    graph[startCircle].splice(0, 1, i + 1); //set index 0 to circle attached to left                  
 
                     //Input current number
                     context.font = "15px Arial";
-                    context.fillText("" + (i + 1), x - 4, y + 4);
+                    if (i >= 9)
+                    {
+                        context.fillText("" + (i + 1), x - 8, y + 4);
+                    }
+                    else{
+                        context.fillText("" + (i + 1), x - 4, y + 4);
+                    }
+                    
                 }
 
                 else {
                     i--;
                     break;
                 }
-                
+
             }
 
             //Draw line to new x,y coordinate if right direction has not already been drawn
@@ -136,7 +142,13 @@ function createGraph() {
 
                     //Input current number
                     context.font = "15px Arial";
-                    context.fillText("" + (i + 1), x - 4, y + 4);
+                    if (i >= 9)
+                    {
+                        context.fillText("" + (i + 1), x - 8, y + 4);
+                    }
+                    else{
+                        context.fillText("" + (i + 1), x - 4, y + 4);
+                    }
                 }
 
                 else {
@@ -149,11 +161,11 @@ function createGraph() {
             else {
                 startCircle++;
             }
-        }          
-               
+        }
+
     }
 
-    
+
 }
 
 
